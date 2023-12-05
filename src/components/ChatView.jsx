@@ -9,26 +9,8 @@ import { dalle } from '../utils/dalle';
 import Modal from './Modal';
 import Setting from './Setting';
 
-const options = ['ChatGPT', 'DALL·E'];
-const gptModel = ['gpt-3.5-turbo', 'gpt-4'];
-const template = [
-  {
-    title: 'Plan a trip',
-    prompt: 'I want to plan a trip to New York City.',
-  },
-  {
-    title: 'how to make a cake',
-    prompt: 'How to make a cake with chocolate and strawberries?',
-  },
-  {
-    title: 'Business ideas',
-    prompt: 'Generate 5 business ideas for a new startup company.',
-  },
-  {
-    title: 'What is recursion?',
-    prompt: 'What is recursion? show me an example in python.',
-  },
-];
+const options = ['ChatGPT'];
+const gptModel = ['gpt-3.5-turbo'];
 
 /**
  * A chat view component that displays a list of messages and a form for sending new messages.
@@ -141,11 +123,6 @@ const ChatView = () => {
           className={`${gpt == gptModel[0] && 'tab-active'} tab`}>
           GPT-3.5
         </a>
-        <a
-          onClick={() => setGpt(gptModel[1])}
-          className={`${gpt == gptModel[1] && 'tab-active'} tab`}>
-          GPT-4
-        </a>
       </div>
 
       <section className='flex flex-col flex-grow w-full px-4 overflow-y-scroll sm:px-10 md:px-32'>
@@ -156,17 +133,7 @@ const ChatView = () => {
         ) : (
           <div className='flex my-2'>
             <div className='w-screen overflow-hidden'>
-              <ul className='grid grid-cols-2 gap-2 mx-10'>
-                {template.map((item, index) => (
-                  <li
-                    onClick={() => setFormValue(item.prompt)}
-                    key={index}
-                    className='p-6 border rounded-lg border-slate-300 hover:border-slate-500'>
-                    <p className='text-base font-semibold'>{item.title}</p>
-                    <p className='text-sm'>{item.prompt}</p>
-                  </li>
-                ))}
-              </ul>
+              <h3 className='text-bold text-center'>Kamu bercerita, Super Connect Mendengarkan</h3>
             </div>
           </div>
         )}
@@ -183,7 +150,6 @@ const ChatView = () => {
           onChange={(e) => setSelected(e.target.value)}
           className='w-full sm:w-40 select select-bordered join-item'>
           <option>{options[0]}</option>
-          <option>{options[1]}</option>
         </select>
         <div className='flex items-stretch justify-between w-full'>
           <textarea

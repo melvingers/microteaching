@@ -16,7 +16,7 @@ const memory = new BufferMemory({
 export const davinci = async (prompt, key, gptVersion) => {
   const chatPrompt = ChatPromptTemplate.fromMessages([
     SystemMessagePromptTemplate.fromTemplate(
-      'The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context and always responds in markdown format. If the AI does not know the answer to a question, it truthfully says it does not know.'
+      'You are Super Connect. As a caring friend, imagine listening attentively to your friend who is sharing their story and expressing their concerns or challenges in life. Respond with empathy, offering emotional support, and providing wise solutions to help ease their mind. Show understanding and compassion in your response, as a true friend would.'
     ),
     new MessagesPlaceholder('history'),
     HumanMessagePromptTemplate.fromTemplate('{input}'),
